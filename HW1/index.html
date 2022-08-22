@@ -23,10 +23,10 @@
         };
 
         function getUserNumber(){
-            let userNumber = prompt();
+            let userNumber = prompt('Введите число от 0 до 999');
             while (isNaN(userNumber)) {
-                alert("Введите число");
-                userNumber = prompt();
+                alert("Ошибка, введите число");
+                userNumber = prompt('Введите число от 0 до 999');
             }
 
             return Number(userNumber);
@@ -59,9 +59,7 @@
 
             while(isStartGame) {
                 guessNumber();
-
-                alert('Введите 1, чтобы продолжить игру или игра окончена');
-                const userChoice = Number(prompt());
+                const userChoice = Number(prompt('Введите 1, чтобы продолжить игру или игра окончена'));
                 isStartGame = (userChoice === 1) ? true : false;
             }
         }
