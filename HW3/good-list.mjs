@@ -39,9 +39,9 @@ export class GoodList {
       const items = [...this.#goods];
 
       return this.sortDir ?
-        items.sort(sortPriceLow)
+        items.sort(sortPriceLow).filter((item) => item.available)
         :
-        items.sort(sortPriceHigh);
+        items.sort(sortPriceHigh).filter((item) => item.available);
     } else {
 
       return this.#goods;

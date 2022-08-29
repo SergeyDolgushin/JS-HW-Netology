@@ -14,21 +14,24 @@ for (let item of goods) {
 }
 console.table(goodsArray);
 goodsArray[4].setAvailable(true);
+goodsArray[3].setAvailable(true);
 console.table(goodsArray);
 
 console.log('*************GoodList*************');
-const itemsList = new GoodList(FILTER, true, false);
+const itemsList = new GoodList(FILTER, false, true);
 for (let item of goodsArray) {
   itemsList.add(item);
 }
 console.table(itemsList.list);
 itemsList.remove(3);
 console.table(itemsList.list);
+
 console.log('*************Basket*************');
 for (let item of itemsList.list) {
   basketGoodsArray.push(new BasketGood(item));
 }
 console.table(basketGoodsArray);
+
 console.log('*************BasketList*************');
 const basket = new Basket();
 for (let item of basketGoodsArray) {
@@ -37,7 +40,7 @@ for (let item of basketGoodsArray) {
 console.table(basket.goods);
 console.log('Общая стоимость', basket.totalAmount);
 console.log('Общее количество', basket.totalSum);
-basket.add(basketGoodsArray[1], 2);
+basket.add(basketGoodsArray[0], 2);
 basket.removeUnavailable();
 console.table(basket.goods);
 basket.clear();
