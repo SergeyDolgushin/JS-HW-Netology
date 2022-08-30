@@ -17,11 +17,7 @@ export class GoodList {
   }
 
   add = (item) => {
-    if (this.filter.test(item.name) === null) {
-      this.#goods = [...this.#goods, item];
-    } else {
-      console.log('Некорректное имя товара, id =', item.id);
-    }
+    this.#goods = [...this.#goods, item];
   }
 
   remove = (id) => {
@@ -36,12 +32,12 @@ export class GoodList {
 
   get list() {
     if (this.sortPrice) {
-      const items = [...this.#goods];
-
+      const items = this.#goods.filter((item) => this.filter.test(item.name) !== null);
+      
       return this.sortDir ?
-        items.sort(sortPriceLow).filter((item) => item.available)
+        items.sort(sortPriceLow)
         :
-        items.sort(sortPriceHigh).filter((item) => item.available);
+        items.sort(sortPriceHigh);
     } else {
 
       return this.#goods;

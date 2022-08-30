@@ -8,7 +8,7 @@ export class Basket {
     const currentGood = this.goods.filter((item) => item.id === good.id);
 
     if (currentGood.length === 0) {
-      this.goods.push({...good, amount});
+      this.goods.push(good);
     } else {
       const indexOfGood = this.goods.findIndex((item) => item.id === currentGood[0].id);
       this.goods[indexOfGood] = {...good, amount: currentGood[0].amount + amount};

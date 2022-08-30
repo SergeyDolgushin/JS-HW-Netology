@@ -2,8 +2,8 @@ import { Good } from './good.mjs';
 
 export class BasketGood extends Good {
 
-  constructor(params) {
+  constructor(params, amount) {
     super(params);
-    this.amount = 0;
+    this.amount = amount;
   }
 }

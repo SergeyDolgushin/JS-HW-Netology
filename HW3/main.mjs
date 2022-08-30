@@ -4,7 +4,7 @@ import { Basket } from './basket.mjs';
 import { Good } from './good.mjs';
 import { BasketGood } from './basket-good.mjs';
 
-const FILTER = /[-().^+]/;
+const FILTER = /[0-9]/;
 const goodsArray = [];
 const basketGoodsArray = [];
 
@@ -18,7 +18,7 @@ goodsArray[3].setAvailable(true);
 console.table(goodsArray);
 
 console.log('*************GoodList*************');
-const itemsList = new GoodList(FILTER, false, true);
+const itemsList = new GoodList(FILTER, true, true);
 for (let item of goodsArray) {
   itemsList.add(item);
 }
@@ -28,7 +28,7 @@ console.table(itemsList.list);
 
 console.log('*************Basket*************');
 for (let item of itemsList.list) {
-  basketGoodsArray.push(new BasketGood(item));
+  basketGoodsArray.push(new BasketGood(item, 1));
 }
 console.table(basketGoodsArray);
 
