@@ -17,8 +17,7 @@ function makeCounter() {
     return () => startCount++;
 }
 
-
-async function game(magicNumber, currentCount) {
+function game(magicNumber, currentCount) {
     const count = currentCount();
     
     question('Введите число:').then((answer) => {
